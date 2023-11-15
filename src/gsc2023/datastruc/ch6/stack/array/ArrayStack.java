@@ -1,4 +1,6 @@
-package gsc2023.datastruc.ch6.stack;
+package gsc2023.datastruc.ch6.stack.array;
+
+import gsc2023.datastruc.ch6.stack.Stack;
 
 public class ArrayStack<E> implements Stack<E> {
 	public static final int CAPACITY=1000; // default array capacity
@@ -25,4 +27,20 @@ public class ArrayStack<E> implements Stack<E> {
 		t--;
 		return answer;
 	}
+	
+	@Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+        
+        for (int i = 0; i <= t; i++) {
+            sb.append(data[i]);
+            if (i < t) {
+                sb.append(", ");
+            }
+        }
+        
+        sb.append("]");
+        return sb.toString();
+    }
 }
