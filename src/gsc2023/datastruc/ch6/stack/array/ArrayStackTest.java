@@ -23,8 +23,7 @@ public class ArrayStackTest {
 //		S.push(6); 								// contents: (7, 9, 6)
 //		S.push(8); 								// contents: (7, 9, 6, 8)
 //		System.out.println(S.pop( )); 			// contents: (7, 9, 6) outputs 8
-		
-		
+			
 		
 		
 		
@@ -70,8 +69,8 @@ public class ArrayStackTest {
 		System.out.println("pop: " + S.pop( ));
 		System.out.println("contents: " + S.toString());
 		
-	}
-	
+}
+
 	public static String checkIfEmpty(boolean e) {
 		if(e == true)
 			return "Yes";

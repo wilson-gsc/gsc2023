@@ -58,5 +58,19 @@ public class SinglyLinkedList<E> {
 	public Node<E> getHead() {
 		return head;
 	}
-	
+	@Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+        Node<E> current = head;
+        while (current != null) {
+            sb.append(current.getElement());
+            current = current.getNext();
+            if (current != null) {
+                sb.append(", ");
+            }
+        }
+        sb.append("]");
+        return sb.toString();
+    }
 }

@@ -34,4 +34,5 @@ public class LinkedStack<E> implements Stack<E> {
         result.append("]");
         return result.toString();
     }
+	
 }

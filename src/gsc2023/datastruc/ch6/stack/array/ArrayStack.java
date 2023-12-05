@@ -27,20 +27,20 @@ public class ArrayStack<E> implements Stack<E> {
 		t--;
 		return answer;
 	}
-	
+
 	@Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[");
-        
-        for (int i = 0; i <= t; i++) {
-            sb.append(data[i]);
-            if (i < t) {
-                sb.append(", ");
-            }
-        }
-        
-        sb.append("]");
-        return sb.toString();
-    }
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("[");
+
+		for (int i = 0; i <= t; i++) {
+			sb.append(data[i]);
+			if (i < t) {
+				sb.append(", ");
+			}
+		}
+
+		sb.append("]");
+		return sb.toString();
+	}
 }
