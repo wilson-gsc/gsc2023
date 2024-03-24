@@ -17,6 +17,14 @@ public class LinkedStack<E> implements Stack<E> {
 	public E top( ) { return list.first( ); }
 	public E pop( ) { return list.removeFirst( ); }
 	
+	public int capacity( ) {
+		return list.size();
+	}
+	
+	public boolean push2(E e) {
+		return false;
+	}
+	
 	@Override
     public String toString() {
         StringBuilder result = new StringBuilder("contents: [");
@@ -34,5 +42,13 @@ public class LinkedStack<E> implements Stack<E> {
         result.append("]");
         return result.toString();
     }
+	
+	public E getItemByID(int id) {
+		return null;
+	}
+	
+	public E updateItemByID(int id, String desc) {
+		return null;
+	}
 	
 }

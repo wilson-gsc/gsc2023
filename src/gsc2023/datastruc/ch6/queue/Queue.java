@@ -11,4 +11,8 @@ public interface Queue<E>  {
 	E first( );
 	/** Removes and returns the first element of the queue (null if empty). */
 	E dequeue( );
+	int capacity( );
+	boolean enqueue2(E e);
+	E getTicketByLabel(String lbl); 
+	E updateTicketByLabel(String lbl, String newLbl);
 }

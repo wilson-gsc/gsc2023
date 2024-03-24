@@ -24,7 +24,7 @@ public class ArrayListTest {
         list.add(2, "C");
         System.out.println("ArrayList: " + list);
         //System.out.println("add(4, D)");
-        //list.add(4, "D");
+        list.add(4, "D");
         System.out.println("add(4, D) : error");
         
         // Remove element

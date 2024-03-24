@@ -1,6 +1,7 @@
 package gsc2023.datastruc.ch6.queue;
 
 import gsc2023.datastruc.ch3.SinglyLinkedList;
+import gsc2023.datastruc.ch6.ticketing.Ticket;
 
 /** Realization of a FIFO queue as an adaptation of a SinglyLinkedList. */
 public class LinkedQueue<E> implements Queue<E> {
@@ -9,10 +10,18 @@ public class LinkedQueue<E> implements Queue<E> {
 	public int size( ) { return list.size( ); }
 	public boolean isEmpty( ) { return list.isEmpty( ); }
 	public void enqueue(E element) { list.addLast(element); }
+	public boolean enqueue2(E element) { return false; }
 	public E first( ) { return list.first( ); }
 	public E dequeue( ) { return list.removeFirst( ); }
+	public int capacity( ) { return size(); };
 	@Override
 	public String toString() {
 		return list.toString();
+	}
+	public E getTicketByLabel(String lbl) {
+        return null; 
+    }
+	public E updateTicketByLabel(String lbl, String newLbl) {
+		return null;
 	}
 }

@@ -1,9 +1,11 @@
 package gsc2023.datastruc.ch6.queue;
 
+import gsc2023.datastruc.ch6.ticketing.Ticket;
+
 /** Implementation of the queue ADT using a fixed-length array. */
 public class ArrayQueue<E> implements Queue<E> {
 	// instance variables
-	public static final int CAPACITY=1000; // default array capacity
+	public static final int CAPACITY=16; // default array capacity
 	private E[ ] data; // generic array used for storage
 	private int f = 0; // index of the front element
 	private int sz = 0; // current number of elements
@@ -28,6 +30,18 @@ public class ArrayQueue<E> implements Queue<E> {
 		data[avail] = e;
 		sz++;
 	}
+	
+	public boolean enqueue2(E e) {
+		boolean flag = false;
+		if (sz == data.length) {
+			flag = true;
+		} else {
+			int avail = (f + sz) % data.length; // use modular arithmetic
+			data[avail] = e;
+			sz++;
+		}
+		return flag;
+	}
 
 	/** Returns, but does not remove, the first element of the queue (null if empty). */
 	public E first( ) {
@@ -45,18 +59,53 @@ public class ArrayQueue<E> implements Queue<E> {
 		return answer;
 	}
 	
+	public int capacity( ) {
+		return data.length;
+	}
+	
+	public E[] getData() {
+		return data;
+	}
+	
+	public E getTicketByLabel(String lbl) {
+        for (int i = 0; i < sz; i++) {
+            int index = (f + i) % data.length;
+            if (data[index] instanceof Ticket) { 
+                Ticket ticket = (Ticket) data[index];
+                if (ticket.getLabel().equals(lbl)) {
+                    return (E) ticket;
+                }
+            }
+        }
+        return null; // Element not found
+    }
+	
+	public E updateTicketByLabel(String lbl, String newLbl) {
+        for (int i = 0; i < sz; i++) {
+            int index = (f + i) % data.length;
+            if (data[index] instanceof Ticket) { 
+                Ticket ticket = (Ticket) data[index];
+                if (ticket.getLabel().equals(lbl)) {
+                	ticket.setLabel(newLbl);
+                    return (E) ticket;
+                }
+            }
+        }
+        return null; // Element not found
+    }
+	
 	@Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("[");
+        sb.append("[\n");
         for (int i = 0; i < sz; i++) {
             int index = (f + i) % data.length;
-            sb.append(data[index]);
+            sb.append(" "+data[index]);
             if (i < sz - 1) {
-                sb.append(", ");
+                sb.append(",\n");
             }
         }
-        sb.append("]");
+        sb.append("\n]");
         return sb.toString();
     }
 	

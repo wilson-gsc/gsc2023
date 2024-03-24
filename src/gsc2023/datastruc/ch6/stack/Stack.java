@@ -41,4 +41,9 @@ public interface Stack<E> {
 	 * @return element removed (or null if empty)
 	 */
 	E pop( );
+	
+	int capacity( );
+	boolean push2(E e);
+	E getItemByID(int id); 
+	E updateItemByID(int id, String desc);
 }
