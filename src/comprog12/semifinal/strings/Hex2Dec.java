@@ -1,4 +1,4 @@
-package comprog12.semifinal;
+package comprog12.semifinal.strings;
 
 import java.util.Scanner;
 /**
