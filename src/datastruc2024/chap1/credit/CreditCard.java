@@ -1,5 +1,7 @@
 package datastruc2024.chap1.credit;
 
+import java.util.Scanner;
+
 public class CreditCard {
 	// Instance variables:
 	private String customer;     // name of the customer (e.g., "John Bowman")
@@ -52,19 +54,59 @@ public class CreditCard {
 
 	// main method
 	public static void main(String[ ] args) {
-		CreditCard[ ] wallet = new CreditCard[3];
-		wallet[0] = new CreditCard("John Bowman", "California Savings",
-								   "5391 0375 9387 5309", 5000); 
-		wallet[1] = new CreditCard("John Bowman", "California Federal",
-								   "3485 0399 3395 1954", 3500); 
-		wallet[2] = new CreditCard("John Bowman", "California Finance",
-								   "5391 0375 9387 5309", 2500, 300);
+//		CreditCard[ ] wallet = new CreditCard[3];
+//		wallet[0] = new CreditCard("John Bowman", "California Savings",
+//								   "5391 0375 9387 5309", 5000); 
+//		wallet[1] = new CreditCard("John Bowman", "California Federal",
+//								   "3485 0399 3395 1954", 3500); 
+//		wallet[2] = new CreditCard("John Bowman", "California Finance",
+//								   "5391 0375 9387 5309", 2500, 300);
 		
-		for (int val = 1; val <= 16; val++) { 
-			wallet[0].charge(3*val); 
-			wallet[1].charge(2*val); 
-			wallet[2].charge(val);
-		}
+		Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the number of credit cards: ");
+        int numCards = scanner.nextInt();
+
+        scanner.nextLine(); // Consume the newline character
+
+        CreditCard[] wallet = new CreditCard[numCards];
+
+        for (int i = 0; i < numCards; i++) {
+            System.out.println("\nCard " + (i + 1) + ":");
+
+            System.out.print("Customer name: ");
+            String customer = scanner.nextLine();
+
+            System.out.print("Bank name: ");
+            String bank = scanner.nextLine();
+
+            System.out.print("Account number: ");
+            String account = scanner.nextLine();
+
+            System.out.print("Credit limit: ");
+            int limit = scanner.nextInt();
+            scanner.nextLine(); // Consume the newline character
+
+            System.out.print("Initial balance: ");
+            double initialBalance = scanner.nextDouble();
+            scanner.nextLine(); // Consume the newline character
+
+            wallet[i] = new CreditCard(customer, bank, account, limit, initialBalance);
+            
+            for (int val = 1; val <= 16; val++) { 
+    			wallet[i].charge(3*val); 
+    		}
+        }
+        
+        scanner.close();
+		
+//		for (int val = 1; val <= 16; val++) { 
+//			wallet[0].charge(3*val); 
+//			wallet[1].charge(2*val); 
+//			wallet[2].charge(val);
+//		}
+		
+		System.out.println("\n- - - - - - - - - - - - - - - - - -");
 		
 		for (CreditCard card : wallet) { 
 			CreditCard.printSummary(card); 

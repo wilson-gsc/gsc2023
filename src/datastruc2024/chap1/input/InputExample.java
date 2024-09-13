@@ -11,5 +11,7 @@ public class InputExample {
 		double rate = input.nextDouble();
 		double fb = (rate - age) * 0.65;
 		System.out.println("Your ideal fat-burning heart rate is " + fb);
+		
+		input.close();
 	}
 }

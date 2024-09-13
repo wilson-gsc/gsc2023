@@ -16,39 +16,25 @@ public class Employee {
     }
 
     // Getter for id
-    public int getId() {
-        return id;
-    }
+    public int getId() { return id; }
 
     // Getter for firstName
-    public String getFirstName() {
-        return firstName;
-    }
+    public String getFirstName() { return firstName; }
 
     // Getter for lastName
-    public String getLastName() {
-        return lastName;
-    }
+    public String getLastName() { return lastName; }
 
     // Getter for full name
-    public String getName() {
-        return firstName + " " + lastName;
-    }
+    public String getName() { return firstName + " " + lastName; }
 
     // Getter for salary
-    public int getSalary() {
-        return salary;
-    }
+    public int getSalary() { return salary; }
 
     // Setter for salary
-    public void setSalary(int salary) {
-        this.salary = salary;
-    }
+    public void setSalary(int salary) { this.salary = salary; }
 
     // Method to calculate and return annual salary
-    public int getAnnualSalary() {
-        return salary * 12;
-    }
+    public int getAnnualSalary() { return salary * 12; }
 
     // Method to raise salary by a given percentage
     public int raiseSalary(int percent) {
