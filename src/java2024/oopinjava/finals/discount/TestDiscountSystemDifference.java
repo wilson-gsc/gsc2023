@@ -18,14 +18,16 @@ public class TestDiscountSystemDifference {
         // --- Print visit details and total bill for both customers ---
         System.out.println("\n--- Visit Details ---");
         System.out.println("Customer 1:\n" + visit1);
-        System.out.println("Total expense for "+ visit1.getCustomer().getName()+" is : Php" + visit1.getTotalExpense());
+        //System.out.println("Total expense for "+ visit1.getCustomer().getName()+" is : Php " + visit1.getTotalExpense());
 
         System.out.println("\nCustomer 2:\n" + visit2);
-        System.out.println("Total expense for " + visit2.getCustomer().getName() +" is : Php" + visit2.getTotalExpense());
+        //System.out.println("Total expense for " + visit2.getCustomer().getName() +" is : Php " + visit2.getTotalExpense());
 
         // --- Calculate and print the difference in total expenses ---
         double expenseDifference = Math.abs(visit1.getTotalExpense() - visit2.getTotalExpense());
-        System.out.println("\nDifference in total expenses: Php" + expenseDifference);
+        System.out.println("\nDifference in total expenses "
+        		+ "of " + visit1.getCustomer().getName() + " and " + visit2.getCustomer().getName()
+        		+ " is Php " + expenseDifference);
 
         scanner.close();
     }

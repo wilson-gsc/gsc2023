@@ -1,24 +1,23 @@
-package java2024.oopinjava.finals.discount;
+package java2024.oopinjava.finals.discount.retake;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Visit {
-	private Customer customer;
+public class Visit2 {
+	private Customer2 customer;
 	private Date date;
 	private double serviceExpense;
 	private double productExpense;
 
-	// SimpleDateFormat outputFormat = new SimpleDateFormat("MMM dd yyyy E hh:mm a");
 	SimpleDateFormat outputFormat = new SimpleDateFormat("MMM dd yyyy");
 
-	public Visit(String name, Date date) {
-		this.customer = new Customer(name);
+	public Visit2(String name, Date date) {
+		this.customer = new Customer2(name);
 		this.date = date;
 	}
 
 
-	public Customer getCustomer() {
+	public Customer2 getCustomer() {
 		return customer;
 	}
 
@@ -55,13 +54,13 @@ public class Visit {
 
 	public double getServiceDiscount(){
 		double serviceDiscount = customer.isMember() ? 
-				DiscountRate.getServiceDiscountRate(customer.getMemberType()) : 0.0;
+				DiscountRate2.getServiceDiscountRate(customer.getMemberType()) : 0.0;
 		return serviceDiscount;
 	}
 
 	public double getProductDiscount(){
 		double productDiscount = customer.isMember() ? 
-				DiscountRate.getProductDiscountRate(customer.getMemberType()) : 0.0;
+				DiscountRate2.getProductDiscountRate(customer.getMemberType()) : 0.0;
 		return productDiscount;
 	}
 
@@ -75,7 +74,7 @@ public class Visit {
 
 	@Override
 	public String toString() {
-		if(customer.isMember()) {
+		if(!customer.isMember()) {
 			return "Visit { "
 					+ "\n\t" + customer.toString() + 
 					",\n\tDate: " + outputFormat.format(date) + 
@@ -150,41 +149,7 @@ public class Visit {
 			ret += "\nTotal expense for silver membership: ₱" + this.getTotalExpense();
 		}
 
-
 		return ret;
 	}
-
-	public static void main(String[] args) {
-		// Create a new Visit object
-		Visit visit1 = new Visit("Peter", new Date());
-		visit1.getCustomer().setMember(true);
-		visit1.getCustomer().setMemberType("Premium");
-		
-		// Set expenses
-		visit1.setServiceExpense(100);
-		visit1.setProductExpense(50);
-
-		// Print the visit details
-		System.out.println(visit1); 
-		
-		Visit visit2 = new Visit("Gilbert", new Date());
-		// Update customer membership
-		// visit2.getCustomer().setMember(false);
-		visit2.getCustomer().setMember(true);
-		visit2.getCustomer().setMemberType("Gold");
-		
-		visit2.setServiceExpense(100);
-		visit2.setProductExpense(50);
-
-		// Print the updated visit details (with discounts applied)
-		System.out.println("\n"+visit2); 
-		
-		double expenseDifference = visit1.getTotalExpense() - visit2.getTotalExpense();
-		if(expenseDifference < 0) {
-			expenseDifference = -expenseDifference;
-		}
-		System.out.println("\nDifference in total expenses "
-        		+ "of " + visit1.getCustomer().getName() + " and " + visit2.getCustomer().getName()
-        		+ " is Php " + expenseDifference);
-	}
+	
 }
